@@ -12,8 +12,6 @@ const messageSchema = new mongoose.Schema<MessageInterface>({
     }
 }, { timestamps: true });
 
-const Message = mongoose.model<MessageInterface>('message', messageSchema);
-
 export interface UserInterface extends Document {
     username: string;
     email: string;
@@ -60,6 +58,6 @@ const userSchema = new mongoose.Schema<UserInterface>({
     messages:[messageSchema]
 })
 
-export const User = mongoose.models.User as mongoose.Model<UserInterface> || mongoose.model<UserInterface>('User',userSchema);
 //check if User is created or not in db and if not then create
-
+export const User = mongoose.models.User as mongoose.Model<UserInterface> || mongoose.model<UserInterface>('User',userSchema);
+export const Message = mongoose.models.Message as mongoose.Model<MessageInterface> || mongoose.model<MessageInterface>('Message',userSchema);
