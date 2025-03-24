@@ -1,4 +1,11 @@
- 
+ ## Libraries and Tech stack used
+ - monogodb with mongoose
+ - resend with react-email for emails
+ - zod for schema validationm
+ - NextAuth for Authentication
+ - Tip: isolate all environment variobles as seperate files in lib folder
+ ![alt text](image.png)
+ - this is different from session callback in next-auth
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 

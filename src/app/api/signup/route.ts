@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
                     message: "email already registered"
                 })
             } else {
-                const hashedPassword = await bcrypt.hashSync(password, 10);
+                const hashedPassword = bcrypt.hashSync(password, 10);
                 exisitngUserByEmail.password = hashedPassword;
                 exisitngUserByEmail.verifyCode = verifyCode;
                 exisitngUserByEmail.verifyCodeExpiry = new Date(Date.now() + 60 * 60 * 1000);

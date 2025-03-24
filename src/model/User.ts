@@ -19,7 +19,7 @@ export interface UserInterface extends Document {
     verifyCode: string;
     verifyCodeExpiry: Date;
     isVerified:boolean;
-    isAccepting: boolean;
+    isAcceptingMessages: boolean;
     messages: MessageInterface[]
 }
 
@@ -51,7 +51,7 @@ const userSchema = new mongoose.Schema<UserInterface>({
         type:Boolean,
         default:false
     },
-    isAccepting:{
+    isAcceptingMessages:{
         type:Boolean,
         default:true
     },
