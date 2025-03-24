@@ -3,7 +3,7 @@ import dbConnect from '../../../lib/dbConnect';
 import { usernameValidation } from '../../../schemas/signUpSchema'
 import { User } from '../../../model/User';
 
-export async function GET(req: Request) {
+export async function GET(req: Request) { 
     await dbConnect();
     try {
         const { searchParams } = new URL(req.url);   //localhost:3000/api/cuu?username=aayush?ejhvg=evjb

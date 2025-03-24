@@ -60,4 +60,4 @@ const userSchema = new mongoose.Schema<UserInterface>({
 
 //check if User is created or not in db and if not then create
 export const User = mongoose.models.User as mongoose.Model<UserInterface> || mongoose.model<UserInterface>('User',userSchema);
-export const Message = mongoose.models.Message as mongoose.Model<MessageInterface> || mongoose.model<MessageInterface>('Message',userSchema);
+// export const Message = mongoose.models.Message as mongoose.Model<MessageInterface> || mongoose.model<MessageInterface>('Message',userSchema);
