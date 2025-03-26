@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
                 await exisitngUserByEmail.save();
             }
         } else {
-            const hashedPassword = bcrypt.hashSync(password, 10);
+            const hashedPassword = await bcrypt.hash(password, 10);
             const expiryDate = new Date();
             expiryDate.setHours(expiryDate.getHours() + 1);
             await User.create({
