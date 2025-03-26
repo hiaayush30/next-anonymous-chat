@@ -29,7 +29,7 @@ export const config = {  //where you want the middleware to run
         '/auth/signin',
         '/auth/signup',
         '/dashboard/:path*',
-        '/verify/:path*',
+        // '/verify/:path*',
         '/'
     ],
 }

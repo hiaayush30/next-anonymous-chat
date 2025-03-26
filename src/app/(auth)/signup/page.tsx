@@ -18,7 +18,6 @@ import Link from "next/link";
 
 function Signup() {
   const router = useRouter();
-  const [username, setUsername] = useState('');
   const [usernameMessage, setUsernameMessage] = useState('');
   const [isCheckingUsername, setIsCheckingUsername] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -61,9 +60,10 @@ function Signup() {
   const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
     setIsSubmitting(true);
     try {
-      const res = await axios.post<ApiResponse>('/api/signup', { ...data });
+      console.log(data)
+      const res = await axios.post<ApiResponse>('/api/signup', { ...data,username:data.username.toLowerCase()});
       toast(res.data.message)
-      router.replace(`/verify/${username}`);
+      router.replace(`/verify/${data.username}`);
     }
     catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
