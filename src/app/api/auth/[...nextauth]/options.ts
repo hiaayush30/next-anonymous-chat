@@ -18,8 +18,8 @@ export const authOptions: NextAuthOptions = {
                     await dbConnect();
                     const user = await User.findOne({
                         $or: [
-                            { email: credentials.identifier.email },
-                            { username: credentials.identifier.email }  //for future proofing
+                            { email: credentials.identifier },
+                            { username: credentials.identifier }  //for future proofing
                         ]
                     })
                     if (!user) {
@@ -61,7 +61,7 @@ export const authOptions: NextAuthOptions = {
             }
             return token // This token is stored in the session cookie
         },
-        async session({ session, user }) { //this user came from what we returned 
+        async session({ session, user }) { //this user came from what we returned in the authorize fn
             // This callback modifies the session object that is sent to the client.
             // Runs every time useSession() or getSession() is called on the client.
             // Uses data from the token (not user, since user data is only available on login).

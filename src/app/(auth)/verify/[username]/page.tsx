@@ -23,7 +23,7 @@ function Verify({ params }:any) {
             const axiosError = error as AxiosError<ApiResponse>
             toast(axiosError.response?.data.message ?? "Error in verifying code")
         }
-        finally {
+        finally { 
             setIsSubmitting(false)
         }
     }

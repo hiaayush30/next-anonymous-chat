@@ -8,7 +8,7 @@ import { getToken } from 'next-auth/jwt'
 export async function middleware(request: NextRequest) {
     const token = await getToken({ req: request });
     const url = request.nextUrl;  //the url user is wanting to go to
-
+    console.log(token);
     if(token && 
         (
             url.pathname.startsWith('/signin') ||
@@ -20,16 +20,14 @@ export async function middleware(request: NextRequest) {
         return NextResponse.redirect(new URL('/dashboard', request.url))
     }
 
-    return NextResponse.redirect(new URL('/home', request.url))
+    return NextResponse.redirect(new URL('/signin', request.url))
 }
 
 // See "Matching Paths" below to learn more
 export const config = {  //where you want the middleware to run
     matcher: [
-        '/auth/signin',
-        '/auth/signup',
-        '/dashboard/:path*',
-        // '/verify/:path*',
+        // '/dashboard/:path*',
+        '/verify/:path*',
         '/'
     ],
 }
