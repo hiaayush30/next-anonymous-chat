@@ -51,6 +51,7 @@ export const authOptions: NextAuthOptions = {
     // what happens when an action is performed.
     callbacks: {
         async jwt({ token, user }) {
+            console.log("in jwt callback:"+JSON.stringify(user))
             // The user object is only available when the user logs in. On subsequent requests, the token is used
             if (user) {
                 token._id = user._id?.toString();
